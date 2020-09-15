@@ -64,6 +64,7 @@ public class TestRepositoryImpl implements TestRepository {
 
     @PostConstruct
     public void postConstruct() {
+        System.out.println("connectionString = " + connectionString);
         if(connection == null) {
             try {
                 connection = DriverManager.getConnection(connectionString);
