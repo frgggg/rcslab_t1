@@ -26,10 +26,10 @@
     -Dserver.port=X \
     -Dsqlite.path=Y \
     -jar ./build/libs/InTest-1.1.jar
-2.4) X - port, Y - docker image name
+2.4) X - port in docker image, Y - docker image name, Z - port for use:
 #export RCSLAB_T1_PORT=X
 #docker build -tY ./
-#docker run -p8070:${RCSLAB_T1_PORT} -eRCSLAB_T1_PORT=${RCSLAB_T1_PORT} -d Y
+#docker run -pZ:${RCSLAB_T1_PORT} -eRCSLAB_T1_PORT=${RCSLAB_T1_PORT} -d Y
 
 3) Use
 3.1) X - port, Y - row val, Z - col val. Y and Z can be one of {a, b, c, d, y, v};
