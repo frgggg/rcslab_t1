@@ -1,5 +1,6 @@
 package org.rcslab.repository.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.rcslab.entity.RowColAnswer;
 import org.rcslab.entity.RowColRequest;
 import org.rcslab.exception.ServiceException;
@@ -13,15 +14,18 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Component
 public class TestRepositoryImpl implements TestRepository {
+
+    private static final String ROW_COL_REQUEST = "SELECT %s as row, %s as col, COUNT(*) as val FROM source_data GROUP BY %s, %s";
+
     @Value("${sqlite.path}")
     private String connectionString;
-    private static final String ROW_COL_REQUEST = "SELECT %s as row, %s as col, COUNT(*) as val FROM source_data GROUP BY %s, %s";
     private Connection connection = null;
 
     @Override
-    public List<RowColAnswer> execRowColRequest(RowColRequest request) {
+    public synchronized List<RowColAnswer> execRowColRequest(RowColRequest request) {
         if(connection == null) {
             throw new ServiceException("no connection with db");
         }
@@ -64,7 +68,7 @@ public class TestRepositoryImpl implements TestRepository {
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("connectionString = " + connectionString);
+        log.info("connectionString = " + connectionString);
         if(connection == null) {
             try {
                 connection = DriverManager.getConnection(connectionString);
