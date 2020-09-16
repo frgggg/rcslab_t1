@@ -15,8 +15,8 @@
     -jar ./build/libs/InTest-1.1.jar
 
 2.2) X - port, Y - path to data.sqlite
-export RCSLAB_T1_PORT=X
-export RCSLAB_T1_DB_PATH=Y
+#export RCSLAB_T1_PORT=X
+#export RCSLAB_T1_DB_PATH=Y
 # java \
     -Dspring.profiles.active=dev \
     -jar ./build/libs/InTest-1.1.jar
@@ -26,6 +26,11 @@ export RCSLAB_T1_DB_PATH=Y
     -Dserver.port=X \
     -Dsqlite.path=Y \
     -jar ./build/libs/InTest-1.1.jar
+2.4) X - port, Y - docker image name
+#export RCSLAB_T1_PORT=X
+#docker build -tY ./
+#docker run -p8070:${RCSLAB_T1_PORT} -eRCSLAB_T1_PORT=${RCSLAB_T1_PORT} -d Y
+
 3) Use
 3.1) X - port, Y - row val, Z - col val. Y and Z can be one of {a, b, c, d, y, v};
 3.2) Args: row, col. All must exist;
