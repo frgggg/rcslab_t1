@@ -8,7 +8,7 @@
 
 2) Exec examples:
 2.1) X - port, Y - "jdbc:sqlite:" + path to data.sqlite + "/data.sqlite"
-java \
+# java \
     -Dspring.profiles.active=dev \
     -Dserver.port=X \
     -Dsqlite.path=Y \
@@ -17,12 +17,12 @@ java \
 2.2) X - port, Y - path to data.sqlite
 export RCSLAB_T1_PORT=X
 export RCSLAB_T1_DB_PATH=Y
-java \
+# java \
     -Dspring.profiles.active=dev \
     -jar ./build/libs/InTest-1.1.jar
     
 3) Use
-3.1) X - port, Y - row val, Z - col val. Y and Z can be one of {a, b, c, d, y, v}
-3.2) Args: row, col. All must exist.
-3.2) Example
+3.1) X - port, Y - row val, Z - col val. Y and Z can be one of {a, b, c, d, y, v};
+3.2) Args: row, col. All must exist;
+3.2) Example:
 http://localhost:X/?row=Y&col=Z
