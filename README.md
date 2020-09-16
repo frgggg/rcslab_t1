@@ -20,7 +20,12 @@ export RCSLAB_T1_DB_PATH=Y
 # java \
     -Dspring.profiles.active=dev \
     -jar ./build/libs/InTest-1.1.jar
-    
+
+2.3) X - port, Y - "jdbc:sqlite:" + path to data.sqlite + "/data.sqlite"
+# java \
+    -Dserver.port=X \
+    -Dsqlite.path=Y \
+    -jar ./build/libs/InTest-1.1.jar
 3) Use
 3.1) X - port, Y - row val, Z - col val. Y and Z can be one of {a, b, c, d, y, v};
 3.2) Args: row, col. All must exist;
