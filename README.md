@@ -22,7 +22,7 @@ java \
     -jar ./build/libs/InTest-1.1.jar
     
 3) Use
-3.1) X - port, Y - path to data.sqlite
+3.1) X - port, Y - row val, Z - col val. Y and Z can be one of {a, b, c, d, y, v}
 3.2) Args: row, col. All must exist.
 3.2) Example
 http://localhost:X/?row=Y&col=Z
